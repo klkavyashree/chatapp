@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
- var bcrypt = require('bcryptjs');
+var bcrypt = require('bcryptjs');
 // create instance of Schema
 var mongoSchema = mongoose.Schema;
 var userSchema = new mongoSchema({
@@ -34,7 +34,7 @@ usermodel.prototype.register = (body, callback) => {
                                 'firstname': body.firstname,
                                 'lastname': body.lastname,
                                 'email': body.email,
-                                'password':hash(body.password)
+                                'password': hash(body.password)
                         });
                         newUser.save((err, result) => {
                                 if (err) {
@@ -70,4 +70,17 @@ usermodel.prototype.login = (body, callback) => {
                 }
         })
 }
+
+
+usermodel.prototype.getAllUser = (callback) => {
+        user.find({}, (err, data) => {
+                if (err) {
+                        callback("error in model"+err);
+                } else {
+                        callback(null, data);
+                }
+        })
+}
+
+
 module.exports = new usermodel();

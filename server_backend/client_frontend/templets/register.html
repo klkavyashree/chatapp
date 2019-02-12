@@ -1,89 +1,51 @@
+<html>
+
 <head>
-    <link rel="stylesheet" href="../css/main.css" type=text/css>
-    </head>
- 
- 
- <div class="registration">
-    <form name="SaveForm">
-        <h1><i>REGISTRATION  &nbsp FORM</i></h1>
-        <label></label>
-        First  name &nbsp<input type="text" name="fname" fname ="enter your first name" required ng-model="user.fname"
-        maxlength="60" ng-pattern="/^[a-zA-Z. ]*[a-zA-Z]{1,60}$/" />
+    <link rel="stylesheet" href="../css/main.css" type=text/css> </head> <div class="registration">
+</head>
 
-        <span style="color:red" ng-show="SaveForm.fname.$dirty && SaveForm.fname.$invalid" class="ng-hide">   
-                 error
-               </span>  
-
-        <div>
-        &nbsp Last &nbsp  name &nbsp<input type="text" name="lname" lname="enter your last name" required ng-model="user.lname"            
-
-         maxlength="60" ng-pattern="/^[a-zA-Z. ]*[a-zA-Z]{1,60}$/" />
-
-         <span style="color:red" ng-show="SaveForm.lname.$dirty && SaveForm.lname.$invalid" class="ng-hide">   
-                  error
-                </span>  
-</div>
-        <div>
-        <label>Your  email &nbsp</label>
-        <input type="text" email="email" email="enter your email address" required ng-model="user.email"
-        maxlength="100" ng-pattern="/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/" />
-        <span style="color:red" ng-show="SaveForm.email.$dirty && SaveForm.email.$invalid" class="ng-hide">   
-                error 
-                </span> 
-            </div>
-        <label>&nbsp &nbsp Password  </label>
-        <input type="password" password="enter a password" required ng-model="user.password"/>
-        <p class="error">
-            <span>&nbsp</span>
-        </p>
-
-        <label>confirm Password </label>
-        <input type="password" />
-        <p class="error">
-            <span>&nbsp </span>
-        </p>
-        
-        <div class="register_button" value="register"></div>
-        <button ng-click='register()'>REGISTER</button>
-        <h3>{{message}}</h3>
-<span><a href="#">sign In</a></span>
-        </div>
-    </form>
-    <h3>{{message}}</h3>
-
- </div>
-
-
-
-
-<!-- <head>
-    <link rel="stylesheet" href="../css/main.css" type=text/css> </head> <div id="login-box">
-    </head>
-    <div class="left">
-        <h1>Sign up</h1>
-
-        <div>
-            First name &nbsp<input type="text" name="firstname" ng-model="firstname" placeholder="Firstname" maxlength="60"
-                ng-pattern="/^[a-zA-Z. ]*[a-zA-Z]{1,60}$/" />
-            <span style="color:red" ng-show="SaveForm.fname.$dirty && SaveForm.fname.$invalid" class="ng-hide">
-        </div>
-        <div>
-            &nbsp Last &nbsp name &nbsp<input type="text" name="lastname" ng-model="lasttname" placeholder="Lastname"
+<body>
+    <div class=registration>
+        <form name="SaveForm" novalidate>
+            {{message}}
+            <h1><i>REGISTRATION &nbsp FORM</i></h1>
+            <label></label>
+            First name &nbsp<input type="text" name="firstname" placeholder="enter your first name" required ng-model="firstname"
                 maxlength="60" ng-pattern="/^[a-zA-Z. ]*[a-zA-Z]{1,60}$/" />
-            <span style="color:red" ng-show="SaveForm.lname.$dirty && SaveForm.lname.$invalid" class="ng-hide">
-        </div>
-        <div>
-            <label>Your email &nbsp</label>
-            <input type="text" name="email" ng-model="firstname" placeholder="E-mail" maxlength="100" ng-pattern="/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/" />
-            <span style="color:red" ng-show="SaveForm.email.$dirty && SaveForm.email.$invalid" class="ng-hide"></span>
-        </div>
-        <input type="password" name="password" ng-model="password" placeholder="Password" /><p></p>
-        <input type="password" name="confirmpassword" ng-model="confirmpassword" placeholder="Retype password" />
 
-        <div class="register_button" value="register"></div>
-        <button ng-click='register()'>REGISTER</button>
-        <!-- <<h3>{{message}}</h3>-
-< <span><a href="#">sign In</a></span> -->
-        <!-- </div>
+            <span style="color:red" ng-show="SaveForm.firstname.$dirty && SaveForm.firstname.$invalid" class="ng-hide">
+                <span ng-show="SaveForm.firstname.$error.required">first name is required</span>
+            </span>
+
+            <div>
+                &nbsp Last &nbsp name &nbsp<input type="text" name="lastname" placeholder="enter your last name" required
+                    ng-model="lastname" maxlength="60" ng-pattern="/^[a-zA-Z. ]*[a-zA-Z]{1,60}$/" />
+                <span style="color:red" ng-show="SaveForm.lastname.$dirty && SaveForm.lastname.$invalid" class="ng-hide">
+                    <span ng-show="SaveForm.lastname.$error.required">last name is required</span>
+                </span>
+            </div>
+            <div>
+                <label>Your email &nbsp</label>
+                <input type="text" email="email" placeholder="enter your email address" required ng-model="email"
+                    maxlength="100" ng-pattern="/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/" />
+                <span style="color:red" ng-show="SaveForm.email.$dirty && SaveForm.email.$invalid" class="ng-hide">
+                    <span ng-show="SaveForm.email.$error.required">email is required</span>
+                    <span ng-show="SaveForm.email.$error.email">invalid email</span>
+                </span><br><br>
+            </div>
+            <label>&nbsp &nbsp Password </label>
+            <input type="password" name="password" placeholder="enter a password" required ng-model="password" /><br><br>
+            <label>&nbsp &nbsp ConfirmPassword </label>
+            <input type="password" name="confirmPassword" placeholder="confirm password" required ng-model="confirmPassword" /><br><br>
+            <input type="submit" value="Submit" ng-disabled="myForm.$invalid" class=button btn-primary btn-block btn-lg
+                ng-click="register()">
+                <font color="red">{{message}}</font> <br><br><br>
+                <span><a href="#">Log In</a></span>
+        </form>
     </div>
-    </div> --> -->
+</body>
+
+</html>
+
+
+

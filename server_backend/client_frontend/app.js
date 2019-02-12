@@ -1,27 +1,32 @@
 
-var chatapp = angular.module('chatApp', ['ui.router']);
+var app = angular.module('chatapp', ['ui.router','btford.socket-io']);
 
-chatapp.config(function ($stateProvider, $urlRouterProvider) {
+app.config(function ($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('login');
-    $stateProvider
-  
-        .state('login', {
+    $stateProvider.state('login', {
             url: '/login',
-            templateUrl: 'templates/login.html',
+            templateUrl: 'templets/login.html',
             controller:'userControl'
         })
-
-
         .state('register', {
             url: '/register',
-            templateUrl: 'templates/register.html',
-            controller:'userControl'
+            templateUrl: 'templets/register.html',
+             controller:'userControl'
         })
+        .state('singleChat', {
+            url: '/singleChat',
+            templateUrl: 'templets/singleChat.html',
+             controller:'singleChatControl'
+        })
+        $urlRouterProvider.otherwise('login');
 
        
-
 });
+app.service('SocketService', ['socketFactory', function SocketService(socketFactory) {
+    return socketFactory({
+        ioSocket: io.connect('http://localhost:3000')
+    });
+}]); 
 
 
 
