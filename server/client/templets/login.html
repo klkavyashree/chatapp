@@ -1,0 +1,28 @@
+<head>
+    <link rel="stylesheet" href="../css/main.css" type=text/css> </head> <div id="login-box">
+</head>
+
+                                                                                                              
+
+       
+    <div class="box">
+            <form name="post">
+    
+        <h1><b><i>CHAT APP</i></b></h1>
+
+        <i>Email Id  </i><br><input type="email" name="email" placeholder="email address " required ng-model="email" class="emailid" required autocomplete="on"/>
+        <span style="color:red" ng-show="post.email.$dirty && post.email.$invalid" class="ng-hide"><br>
+                <span ng-show="post.email.$error.required">Email is required.</span>
+                <span ng-show="post.email.$error.email">Invalid email address.</span>
+            </span><br><br>
+        <div>
+            <i> Password  </i><br><input type="password" name="password    " placeholder="password" required ng-model="password" class="pswd" />
+        </div>
+            <div class="btn" ng-click="login()" value=login>Log In </div>
+            <font color="red">{{loginMessage}}</font> <br>
+        <!-- End Btn --><br><br><br>
+        Don't have account?<span> <a href="#!/register">register</a></span>
+
+    </form>
+    </div> <!-- End Box -->
+    

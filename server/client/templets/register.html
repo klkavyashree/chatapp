@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../css/main.css" type=text/css> </head> <div class="registration">
+</head>
+
+<body>
+    <div class=registration>
+        <form name="SaveForm" novalidate>
+            {{message}}
+            <h1><i>REGISTRATION &nbsp FORM</i></h1>
+            <!-- <label></label> -->
+            First name &nbsp<br><input type="text" name="firstname" placeholder="enter your first name" required ng-model="firstname" class="fname"
+                maxlength="60" ng-pattern="/^[a-zA-Z. ]*[a-zA-Z]{1,60}$/" />
+
+            <span style="color:red" ng-show="SaveForm.firstname.$dirty && SaveForm.firstname.$invalid" class="ng-hide"><br>
+                <span ng-show="SaveForm.firstname.$error.required">first name is required</span>
+            </span>
+
+            <div>
+                &nbsp Last &nbsp name &nbsp<br><input type="text" name="lastname" placeholder="enter your last name" class="lname"
+                    required ng-model="lastname" maxlength="60" ng-pattern="/^[a-zA-Z. ]*[a-zA-Z]{1,60}$/" />
+                <span style="color:red" ng-show="SaveForm.lastname.$dirty && SaveForm.lastname.$invalid" class="ng-hide"><br>
+                    <span ng-show="SaveForm.lastname.$error.required">last name is required</span>
+                </span>
+            </div>
+            <div>
+                &nbsp Your email &nbsp<br> <input type="text" name="email" placeholder="enter your email address" required ng-model="email" class="emailid"
+                    maxlength="100" ng-pattern="/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/" />
+                <span style="color:red" ng-show="SaveForm.email.$dirty && SaveForm.email.$invalid" class="ng-hide">
+                    <span ng-show="SaveForm.email.$error.required">email is required</span><br>
+                    <span ng-show="SaveForm.email.$error.email">invalid email</span>
+                </span><br>
+            </div>
+            
+            &nbsp &nbsp Password &nbsp<br> <input type="password" name="password" placeholder="enter a password" required ng-model="password" class="pswd" /><br>
+            
+           <label> &nbsp &nbsp ConfirmPassword</label> <input type="password" name="confirmPassword" placeholder="confirm password" required ng-model="confirmPassword"  /><br><br>
+            <input type="submit" value="Submit" ng-disabled="myForm.$invalid" class=button btn-primary btn-block btn-lg
+                ng-click="register()"> <br>
+            <span><a href="#">Log In</a></span>
+        </form>
+    </div>
+</body>
+
+</html>
